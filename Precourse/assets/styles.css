@@ -1,0 +1,135 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+} */
+
+h1,
+h2 {
+    color: burlywood;
+
+}
+
+.titulo-dos {
+    color: aqua;
+}
+
+.titulo-tres {
+    color: brown;
+}
+
+input[type="checkbox"] {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+a {
+    color: rgb(7, 7, 3);
+    display: block;
+    margin: 10px;
+}
+
+
+
+a:hover {
+    background-color: rgb(214, 214, 255);
+}
+
+p {
+    color: blue;
+    margin: 10px;
+}
+
+p:first-child {
+    color: orange;
+}
+
+p:last-child {
+    color: green;
+}
+
+p:nth-child(2) {
+    font-size: 50px;
+}
+
+p:nth-child(odd) {
+    background-color: aquamarine;
+}
+
+p:first-letter {
+    font-size: 70px;
+}
+
+h1 p:first-letter {
+    color: brown;
+}
+
+.circulo {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px blue;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-box div {
+    width: 50px;
+    height: 50px;
+    background-color: blueviolet;
+    margin: 30px;
+    box-shadow: 10px 10px 10px blue;
+
+    color: aliceblue;
+}
+
+.uno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: serif;
+}
+
+.dos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: serif;
+
+}
+.tres {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: serif;
+
+}
+.cuatro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: serif;
+
+}
+.cinco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: serif;
+
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./logo-nucba.png" />
+    <!-- Estilos base de la página que usamos como template -->
+    <link rel="stylesheet" href="base.css" />
+    <!-- Estilos de la clase -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Fuente google -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"> -->
+
+    <title>CSS - Introduccion a CSS</title>
+</head>
+
+<body>
+    <h1>
+        1.5 CSS 101
+        <img src="./img/logo-nucba.png" alt="logo" class="logo" />
+    </h1>
+    <hr class="hr" />
+
+    <!--------------------------- Selectores ----------------------------->
+    <h2>Selector de ID:</h2>
+    <div class="code">#selectorId {color: #8c54fb}</div>
+
+
+    <div class="container">
+        <p id="selectorId">Texto</p>
+    </div>
+
+
+    <hr class="hr" />
+
+    <h2>Selector de clase:</h2>
+    <div class="code">.selectorClase {color: #e11d48}</div>
+
+
+    <div class="container">
+        <p class="selectorClase">Texto</p>
+    </div>
+
+
+
+
+
+    <hr class="hr" />
+
+    <h2>Etiqueta:</h2>
+    <div class="code">h5{color: #e11d48}</div>
+
+    <div class="container">
+        <h5>Texto</h5>
+    </div>
+
+
+
+    <hr class="hr" />
+
+    <!--------------------------- Unidades de medida ----------------------------->
+
+    <h2>Unidades de medida</h2>
+    <h3>Unidades absolutas</h3>
+    <span class="text-span">👉 px (más usados)</span>
+
+
+    <div class="container">
+        <div class="caja">100px</div>
+        <div class="caja-mediana">200px</div>
+        <div class="caja-grande">300px</div>
+    </div>
+
+
+
+
+    <span class="text-span">👉 Otras medidas no usadas: cm,mm, in, pt, pc</span>
+
+    <h3>Unidades relativas</h3>
+    <span class="text-span">👉 em (más usados)</span>
+
+
+    <div class="container">
+        <div class="caja-mediana small-font">
+            <p class="em">Texto en em</p>
+        </div>
+    </div>
+
+
+    <span class="text-span">👉 rem (más usados)</span>
+
+    <div class="container">
+        <div class="caja-mediana">
+            <p class="rem">Texto</p>
+        </div>
+    </div>
+
+
+    <span class="text-span">👉"%" porcentaje (más usados)</span>
+
+
+    <div class="container">
+        <div class="caja-mediana">
+            <div class="porcentaje"></div>
+        </div>
+    </div>
+
+
+
+    <span class="text-span">👉 vh(viewport height)</span>
+
+
+    <div class="container">
+        <div class="caja-mediana">
+            <div class="vh">Viewport Height</div>
+        </div>
+    </div>
+
+
+    <span class="text-span">👉 vw(viewport width)</span>
+    <div class="container">
+        <div class="caja-mediana">
+            <div class="vw">Viewport width</div>
+        </div>
+    </div>
+
+
+
+
+
+    <hr class="hr" />
+    <!--------------------------- Background ----------------------------->
+    <h2>Background y color</h2>
+    <h3>Background</h3>
+
+    <span class="text-span">🎨 background-color</span>
+    <div class="code">background-color: crimson;</div>
+
+        <div class="caja bg-color"></div>
+
+
+
+    <span class="text-span">🎨 background-img</span>
+    <div class="code">background-img: url('./img/imagen.png');</div>
+
+
+    <div class="caja bg-img"></div>
+
+
+
+
+    <span class="text-span">🎨 background-repeat</span>
+    <div class="code">background-repeat: repeat;</div>
+
+
+
+    <div class="caja bg-repeat"></div>
+
+
+ 
+
+    <span class="text-span">🎨 background-attachment</span>
+    <div class="code">background-attachment: fixed;</div>
+
+
+    <div class="caja bg-attach"></div>
+
+
+
+
+
+    <span class="text-span">🎨 background-position y background-size</span>
+    <div class="code">background-position: center; || background-size:cover;</div>
+
+    <div class="caja bg-position bg-size"></div>
+
+
+
+
+
+
+    <h3>Color</h3>
+    <div class="code">color: crimson;</div>
+
+    <div class="container">
+        <div class="color">
+            <p>Texto</p>
+        </div>
+    </div>
+
+
+
+
+
+    <hr class="hr" />
+    <!--------------------------- Box-shadow ----------------------------->
+    <h2>Box Shadow</h2>
+    <span class="text-span">👉 offset XY</span>
+
+
+    <div class="caja offsetXY"></div>
+
+
+
+    <span class="text-span">👉 blurRadius</span>
+
+
+    <div class="caja blurRadius"></div>
+
+
+
+    <span class="text-span">👉 spreadRadius</span>
+
+
+    <div class="caja spreadRadius"></div>
+
+
+
+    <span class="text-span">👉 color</span>
+
+
+    <div class="caja colorShadow"></div>
+
+
+    <span class="text-span">👉 inset</span>
+
+
+    <div class="caja inset"></div>
+
+
+
+    <hr class="hr">
+    <!--------------------------- Tipografías ----------------------------->
+    <h2>Tipografías</h2>
+    <span class="text-span">👉 font-family</span>
+    <div class="code">font-family: 'Indie Flower';</div>
+
+    <div class="container">
+        <div class="font-family">
+            <p>Texto con fuente personalizada</p>
+        </div>
+    </div>
+
+
+
+    <span class="text-span">👉 font-weight</span>
+    <div class="code">font-weight: bold;</div>
+
+
+    <div class="container">
+        <div class="font-weight">
+            <p>Texto en bold</p>
+        </div>
+    </div>
+
+
+
+    <span class="text-span">👉 font-style</span>
+    <div class="code">font-style: italic;</div>
+
+
+
+    <div class="container">
+        <div class="font-style">
+            <p>Texto en italica</p>
+        </div>
+    </div>
+
+
+    <span class="text-span">👉 font-size</span>
+    <div class="code">font-size: 2rem</div>
+
+
+    <div class="container">
+        <div class="font-size">
+            <p>Texto con 2rem de size</p>
+        </div>
+    </div>
+
+
+
+    <span class="text-span">👉 letter-spacing</span>
+    <div class="code">letter-spacing: 10px;</div>
+
+
+
+    <div class="container">
+        <div class="letter-spacing">
+            <p>Texto con letter spacing</p>
+        </div>
+    </div>
+
+
+
+    <span class="text-span">👉 word-spacing</span>
+    <div class="code">word-spacing: 10px;</div>
+
+
+    <div class="container">
+        <div class="word-spacing">
+            <p>Texto con word spacing</p>
+        </div>
+    </div>
+
+
+
+    <span class="text-span">👉 line-height</span>
+    <div class="code">line-height: 10px;</div>
+
+
+    <div class="container">
+        <div class="line-height">
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quae quos accusantium molestiae reprehenderit accusamus deserunt asperiores porro facilis nihil rem quo doloremque ut ratione, qui velit assumenda obcaecati architecto fuga sequi sed voluptatibus ea alias. Voluptas totam, vel id ut officia ex tempora soluta minus, iusto ullam, fuga sapiente.
+            </p>
+        </div>
+    </div>
+
+
+
+    <span class="text-span">👉 text-align</span>
+    <div class="code">text-align: center;</div>
+
+
+    <div class="container">
+        <div class="text-align">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi consequatur deleniti commodi vero illum, possimus consequuntur! Quibusdam non accusamus quisquam expedita dolorum vero molestiae enim sed! Ducimus in doloribus amet, hic minima dolorum ipsam eius non tempora iste unde deserunt odio eaque quam autem repellendus esse, et enim, ea ab.</p>
+        </div>
+    </div>
+
+
+
+    <span class="text-span">👉 text-transform</span>
+    <div class="code">text-transform: uppercase;</div>
+
+
+    <div class="container">
+        <div class="text-transform">
+            <p>Texto con text transform</p>
+        </div>
+    </div>
+
+
+
+
+    <span class="text-span">👉 text-decoration</span>
+    <div class="code">text-decoration: underline;</div>
+
+
+    <div class="container">
+        <div class="text-decoration">
+            <p>Texto con text decoration</p>
+        </div>
+    </div>
+
+
+
+    <hr class="hr" />
+    <!--------------------------- Listas ----------------------------->
+    <h2>Estilos para listas</h2>
+    <span class="text-span">👉 list-style-type</span>
+
+
+    <ul class="container">
+        <li class="list-none">Lista sin estilo</li>
+        <li class="list-none">Lista sin estilo</li>
+        <li class="list-none">Lista sin estilo</li>
+        <li class="list-none">Lista sin estilo</li>
+        <li class="list-none">Lista sin estilo</li>
+    </ul>
+
+
+
+    <span class="text-span">👉 list-style-position</span>
+
+
+    <ul class="container">
+        <li class="list-position">Lista con posicionamiento</li>
+    </ul>
+
+
+    <span class="text-span">👉 list-style-image</span>
+
+
+    <ul class="container">
+        <li class="list-img">Lista con imagen personalizada</li>
+        <li class="list-img">Lista con imagen personalizada</li>
+        <li class="list-img">Lista con imagen personalizada</li>
+        <li class="list-img">Lista con imagen personalizada</li>
+        <li class="list-img">Lista con imagen personalizada</li>
+    </ul>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: rgb(39, 111, 226);
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgb(206, 146, 35);
+}
+
+.task.completed {
+    background-color: rgb(204, 240, 240);
+}
+
+.task button {
+    margin-left: auto;
+    cursor: pointer;
+}
