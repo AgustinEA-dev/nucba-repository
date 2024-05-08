@@ -83,3 +83,111 @@ const createProductTemplate = (produt) => {
         </div>
     </div>`;
 };
+
+/**
+ * Función para renderizar una lista de productos
+ * @param {object[]} productList  Array de productos
+ */
+
+const renderProducts = (productList) => {
+    productsContainer.innerHTML += productList
+        .map(createProductTemplate
+            .join('')
+        )
+}
+
+/*---------------------------------------------------------------------- */
+/*---------------------- Lógica de "ver más"---------------------------- */
+/*---------------------------------------------------------------------- */
+
+/**
+ * Función para saber si el índice actual renderizado de la lista de productos productos es igual al límite de productos
+ * @returns {boolean}  true si el índice actual de productos es igual al límite de productos (Total de subarrays en el array de productos divididos), false en caso contrario
+ */
+
+const isLastIndexOf = () => {
+    return appState.currentProductsIndex === appState.productsLimit - 1
+}
+
+/**
+ * Función para renderizar más productos cuando se apreta el botón de "ver más"
+ * Si luego de renderizar se alcanza el límite de productos (Total de subarrays en el array de productos divididos), se oculta el botón
+ */
+const showMoreProducts = () => {
+    appState.currentProductsIndex += 1;
+    let { products, currentProductsIndex } = appState;
+    renderProducts(products[currentProductsIndex]);
+    if (isLastIndexOf()) {
+        showMoreBtn.classList.add("hidden");
+    }
+};
+
+/**
+ *  Función para mostrar u ocultar el botón de "ver más" según corresponda
+ */
+const setShowMoreVisibility = () => {
+    if (!appState.activeFilter) {
+        showMoreBtn.classList.remove("hidden");
+        return;
+    }
+    showMoreBtn.classList.add("hidden");
+};
+
+/*---------------------------------------------------------------------- */
+/*------------------------ Lógica de filtros --------------------------- */
+/*---------------------------------------------------------------------- */
+
+/**
+ * Función para cambiar el estado de los botones de categorías
+ * NOTA: Se utiliza el operador spread para convertir el NodeList en un array y poder utilizar el método forEach
+ * @param  {string} selectedCategory  Nombre de la categoría seleccionada
+ */
+const changeBtnActiveState = (selectedCategory) => {
+    const categories = [...categoriesList]; // creamos un array con spread operator
+    categories.forEach((categoryBtn) => {
+        if (categoryBtn.dataset.category !== selectedCategory) {
+            categoryBtn.classList.remove("active");
+            return;
+        }
+        categoryBtn.classList.add("active");
+    });
+};
+
+/**
+ * Función para cambiar el estado del filtro activo.
+ * Recibe el botón que se apretó y guarda el dataset.category en el estado de la app como nuevo filtro actual.
+ * Llama a la función changeBtnActiveState para cambiar el estado de los botones de categorías.
+ * Llama a la función setShowMoreVisibility para mostrar u ocultar el botón de "ver más" según corresponda.
+ * @param {object} btn  Botón que se apretó
+ */
+const changeFilterState = (btn) => {
+    appState.activeFilter = btn.dataset.category;
+    changeBtnActiveState(appState.activeFilter);
+    setShowMoreVisibility(appState.activeFilter);
+};
+
+/**
+ * Función para aplicar el filtro cuando se apreta un botón de categoría
+ * Si el botón que se apretó no es un botón de categoría o ya está activo, no hace nada.
+ * Llama a la función changeFilterState para cambiar el estado del filtro activo.
+ * Limpia el html de los productos renderizados.
+ * Si hay un filtro activo, llama a la función renderFilteredProducts para renderizar los productos filtrados.
+ * Si se apreta el boton de todas, al no tener un dataset.category ese botón, el filtro activo se vuelve undefined y se renderizan todos los productos.
+ * @param {event} event  Evento de click (usamos destructuring para tomar el target del evento)
+ */
+const applyFilter = ({ target }) => {
+    if (!isInactiveFilterBtn(target)) return;
+    changeFilterState(target);
+    productsContainer.innerHTML = "";
+    if (appState.activeFilter) {
+        renderFilteredProducts();
+        appState.currentProductsIndex = 0;
+        return;
+    }
+    renderProducts(appState.products[0]);
+};
+
+
+
+
+
