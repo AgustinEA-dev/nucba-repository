@@ -1,0 +1,15 @@
+@media (max-width:780px) {
+    .items-div {
+        display: none;
+    }
+
+    #bars-icon {
+        display: flex;
+    }
+}
+
+@media (min-width:675px) {
+    .sub-nav-display {
+        display: none;
+    }
+}

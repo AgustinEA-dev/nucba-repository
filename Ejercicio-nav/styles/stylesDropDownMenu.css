@@ -1,0 +1,12 @@
+.dropDown-menu {
+    display: none;
+}
+
+.dropwDown-menu-visibile {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}

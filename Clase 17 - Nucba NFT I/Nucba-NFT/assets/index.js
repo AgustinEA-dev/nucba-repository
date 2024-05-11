@@ -46,8 +46,8 @@ const saveCart = () => {
  * @returns  {string}  html del producto
  */
 
-const createProductTemplate = (produt) => {
-    const { id, name, bid, user, userImg, cardImg } = produt
+const createProductTemplate = (product) => {
+    const { id, name, bid, user, userImg, cardImg } = product
     return ` 
     <div class="product">
         <img src=${cardImg} alt=${name} />
@@ -187,7 +187,56 @@ const applyFilter = ({ target }) => {
     renderProducts(appState.products[0]);
 };
 
+/**
+ * Función para saber si el elemento que se apretó es un botón de categoría y no está activo
+ * @param {object} btn elemento que se apreto
+ * @returns {boolean} true si el elemento es un botón de categoría y no está activo, false en caso contrario
+ */
+const isInactiveFilterBtn = (element) => {
+    return (
+        element.classList.contains("category") &&
+        !element.classList.contains("active")
+    );
+};
 
+/**
+* Función para filtrar los productos por categoría y renderizarlos.
+*/
+const renderFilteredProducts = () => {
+    const filteredProducts = productsData.filter(
+        (product) => product.category === appState.activeFilter
+    );
+    renderProducts(filteredProducts);
+};
 
+/*-----------------------------------------------------*/
+/*--------------------Menu interface-------------------*/
+/*-----------------------------------------------------*/
 
+/**
+ * Función para mostrar u ocultar el menú hamburguesa y el overlay según corresponda
+ * Togglea el menu y si el carrito esta abierto , lo cierra. Finalmente, muestra el overlay si no había nada abierto se esta abriendo el menú
+ */
+const toggleMenu = () => {
+    barsMenu.classList.toggle("open-menu");
+    if (cartMenu.classList.contains("open-cart")) {
+        cartMenu.classList.remove("open-cart");
+        return; // Si ya había algo abierto, no se togglea el overlay, por eso el return
+    }
+    overlay.classList.toggle("show-overlay");
+};
+
+/**
+ * Función para mostrar u ocultar el carrito y el overlay según correspondaw
+ * Togglea el cart y si el menu esta abierto , lo cierra. Finalmente, muestra el overlay si no había nada abierto y se esta abriendo el carrito
+ */
+const toggleCart = () => {
+    cartMenu.classList.toggle("open-cart");
+    if (barsMenu.classList.contains("open-menu")) {
+      barsMenu.classList.remove("open-menu");
+      return; // Si ya había algo abierto, no se togglea el overlay, por eso el return
+    }
+    overlay.classList.toggle("show-overlay");
+  };
+  
 
