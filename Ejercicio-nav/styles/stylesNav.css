@@ -1,6 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {
@@ -8,7 +11,7 @@ body {
 }
 
 .nav {
-    /* position: fixed; */
+    position: fixed;
     width: 100%;
     height: 104px;
     top: 0;
@@ -17,7 +20,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: rgb(255, 255, 255, 0.1);
+    transition: transform 0.4s;
+}
+
+.nav--hidden {
+    transform: translateY(-104px);
 }
 
 .items-div {
@@ -34,15 +42,19 @@ body {
 
 .items {
     list-style: none;
-    font-family: "Freeman", sans-serif;
+    /* font-family: "Freeman", sans-serif; */
     font-weight: 400;
     font-style: normal;
 }
 
 a {
     text-decoration: none;
-    font-size: 20px;
-    color: black;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+
+#info {
+    color: #FFB930;
 }
 
 span {
@@ -50,12 +62,12 @@ span {
 }
 
 img {
-    width: 50px;
+    width: 40px;
     padding-right: 20px;
 }
 
 #logo {
-    width: 130px;
+    width: 150px;
 }
 
 input {
@@ -63,11 +75,11 @@ input {
     width: 150px;
     border-radius: 30px;
     border: none;
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 253, 253);
+    color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 10px;
-    font-family: "Freeman", sans-serif;
+    /* font-family: "Freeman", sans-serif; */
     font-weight: 400;
     font-style: normal;
 }
@@ -76,4 +88,3 @@ input {
     display: none;
     cursor: pointer;
 }
-

@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 @media (max-width:780px) {
     .items-div {
         display: none;
