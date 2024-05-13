@@ -10,10 +10,12 @@ html{
     #bars-icon {
         display: flex;
     }
+
+   
 }
 
-@media (min-width:675px) {
-    .sub-nav-display {
-        display: none;
-    }
+@media (min-width:781px) {
+.dropDown-menu {
+    visibility: hidden;
+}
 }

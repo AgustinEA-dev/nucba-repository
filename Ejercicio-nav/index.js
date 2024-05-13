@@ -19,5 +19,10 @@ window.addEventListener("scroll", () => {
 });
 
 barsMenu.addEventListener('click', () => {
-    dropDownMenu.classList.toggle('dropwDown-visible')
+    dropDownMenu.classList.toggle('dropDown-visible')
 })
+
+// window.addEventListener('click', () => {
+//     dropDownMenu.classList.remove('dropDown-visible')
+// })
+// 
