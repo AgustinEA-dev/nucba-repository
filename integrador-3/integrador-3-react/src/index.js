@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom"
 
 import './index.scss';
+import "./animations.scss";
 
 
 import App from './App';
-import { ProductsProvider } from './contexts/products.context';
+import { CategoriesProvider } from './contexts/categories.context';
 import { CartProvider } from './contexts/cart.context';
+import { MenuDropDownProvider } from './contexts/menu-dropdown.context';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -17,11 +19,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ProductsProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </ProductsProvider>
+      <CategoriesProvider>
+        <MenuDropDownProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </MenuDropDownProvider>
+      </CategoriesProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,0 +1,17 @@
+.shop-container {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 150px;
+}
+
+@media (max-width: 1400px) {
+  .shop-container {
+    margin: 100px 50px;
+  }
+}
+
+@media (max-width: 400px) {
+  .shop-container {
+    margin: 100px 20px;
+  }
+}

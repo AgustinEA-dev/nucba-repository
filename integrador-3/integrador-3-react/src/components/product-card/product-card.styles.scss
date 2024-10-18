@@ -1,67 +1,85 @@
 .product-card-container {
+  width: 320px;
+  height: 320px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 40px;
 
   img {
-    width: 370px;
-    height: 370px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-  }
-
-  @media (max-width: 460px) {
-    img {
-      width: 270px;
-      height: 270px;
-    }
-  }
-
-  @media (max-width: 380px) {
-    img {
-      width: 200px;
-      height: 200px;
-    }
-  }
-  @media (max-width: 207px) {
-    img {
-      width: 150px;
-      height: 150px;
-    }
+    margin-bottom: 5px;
   }
 
   button {
-    background-color: black;
-    border: none;
-    color: white;
-    width: 170px;
-    font-size: 15px;
+    width: 80%;
     padding: 15px;
+    opacity: 0.7;
+    position: absolute;
+    top: 230px;
+    left: 35px;
+    display: none;
   }
 
-  @media(max-width:207px){
-    button{
-      width: auto;
+  &:hover {
+    img {
+      opacity: 0.8;
+    }
+
+    button {
+      opacity: 0.85;
+      display: flex;
     }
   }
 
-  .footer {
+  .card-footer {
+    width: 100%;
+    height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 3px;
-    .name-price-container {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .product-card-container {
+    button {
       display: flex;
-      gap: 20px;
-      font-size: 15px;
-      padding-left: 10px;
+      width: 50%;
+      opacity: 1;
+      position: initial;
+    }
+    .card-footer {
+      height: 50%;
     }
   }
 }
 
-@media (max-width: 460px) {
-  .footer {
-    flex-direction: column;
+@media (max-width: 500px) {
+  .product-card-container {
+    width: 280px;
+    height: 280px;
+
+    .card-footer {
+      font-size: 12px;
+    }
   }
-  .name-price-container {
-    padding: 10px;
+}
+
+@media (max-width: 350px) {
+  .product-card-container {
+    width: 150px;
+    height: 150px;
+    .card-footer {
+      flex-direction: column;
+      button {
+        padding: 5px;
+        width: 100%;
+      }
+    }
   }
 }

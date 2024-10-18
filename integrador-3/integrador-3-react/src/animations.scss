@@ -1,0 +1,81 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(-200px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(100px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-bottom {
+  from {
+    transform: translateY(300px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -512px -512px;
+  }
+}
+
+.hero {
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+}
+
+.navbar-container {
+  animation-name: slide-left;
+  animation-duration: 0.4s;
+}
+
+h2,
+.sign-in-span,
+.sign-up-span,
+.about-image-container {
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+}
+.sign-in-form,
+.sign-up-form,
+.contact-form,
+.about-text {
+  animation-name: slide-right;
+  animation-duration: 0.3s;
+}
+
+.logo,
+.about-link,
+.image-greco-container {
+  animation-name: slide-bottom;
+  animation-duration: 0.5s;
+}

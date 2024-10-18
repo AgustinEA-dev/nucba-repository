@@ -1,18 +1,16 @@
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 .root {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 80px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    background-color: black;
-    color: aliceblue;
-    padding: 50px;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr)/repeat(4, 2fr);
+    border: 1px solid;
+    margin: 10px;
 }
 
+.items{
+height: 50px;
+}

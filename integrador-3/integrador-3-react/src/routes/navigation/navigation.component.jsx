@@ -1,30 +1,33 @@
 import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
 
 import { Outlet, Link } from "react-router-dom";
 
-import { CartContext } from "../../contexts/cart.context";
-
 import CartIcon from "../../components/cart-icon/cart-icon.component";
+import Bars from "../../components/bars-icon/bars-icon.component";
+import Close from "../../components/close-icon/close-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
-
-import { ReactComponent as BarsLogo } from "../../assets/bars-solid.svg";
+import MenuDropdown from "../../components/menu-dropdown/menu-dropdown.component";
 
 import "./navigation.styles.scss";
+import "../../animations.scss";
 
 const Navigation = () => {
-  const { isCartOpen } = useContext(CartContext);
+  const { isMenuOpen } = useContext(CartContext);
+
   return (
     <>
       <header className="navbar-container">
         <div className="logo-links-container">
-          <Link className="logo" to={"/"}>
-            <span>LOGO</span>
+          <MenuDropdown />
+          <Link className="nav-logo" to={"/"}>
+            <img className="navigation-logo" src="greco.png" alt="greco-logo" />
           </Link>
           <nav className="links-container">
             <Link className="nav-link" to="/about">
               About
             </Link>
-            <Link className="nav-link" to="/products">
+            <Link className="nav-link" to="/shop">
               Products
             </Link>
             <Link className="nav-link" to="/contact">
@@ -33,10 +36,13 @@ const Navigation = () => {
           </nav>
         </div>
         <div className="icons-container">
-          <BarsLogo className="bars-icon" />
+          <Link className="nav-link" to="/auth">
+            Sign In
+          </Link>
+          {!isMenuOpen ? <Bars /> : <Close />}
           <CartIcon />
         </div>
-        {isCartOpen && <CartDropdown />}
+        <CartDropdown />
       </header>
       <Outlet />
     </>

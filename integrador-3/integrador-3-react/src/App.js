@@ -1,33 +1,39 @@
-import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 
-import { getCategoriesAndDocuments } from "./utils/firebase/firebase.utils";
-
-import { SHOP_DATA } from "./SHOP_DATA";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navigation from "./routes/navigation/navigation.component";
-import About from "./components/about/about.component";
-import Products from "./components/products/products.component";
-import Contact from "./components/contact/contact.component";
-
+import Checkout from "./routes/checkout/checkout.component";
+import About from "./routes/about/about.component";
+import Contact from "./routes/contact/contact.component";
 import Home from "./routes/home/home.component";
+import Shop from "./routes/shop/shop.component";
+import Authentication from "./routes/authentication/authentication.component";
 
 function App() {
-  // useEffect(() => {
-  //   const getCategoriesMap = async () => {
-  //     const categoryMAp = await getCategoriesAndDocuments()
-  //     console.log(categoryMAp)
-  //   }
-  //   getCategoriesMap()
-  // }, [])
+  function GoToTop() {
+    const routePath = useLocation();
+    const onTop = () => {
+      window.scrollTo(0, 0);
+    }
+    useEffect(() => {
+      onTop()
+    }, [routePath]);
+
+    return null;
+  }
+  GoToTop()
+
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="products" element={<Products />} />
+          <Route path="shop/*" element={<Shop />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="auth" element={<Authentication />} />
         </Route>
       </Routes>
     </div>

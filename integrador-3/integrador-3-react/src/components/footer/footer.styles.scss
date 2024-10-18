@@ -1,0 +1,39 @@
+.footer {
+  width: 100%;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    padding: 20px;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-logo {
+    width: 50px;
+    position: relative;
+    top: 20px;
+  }
+
+  .greco-illustration {
+    width: 200px;
+  }
+}
