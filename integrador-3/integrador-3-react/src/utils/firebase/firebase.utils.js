@@ -1,8 +1,10 @@
 import { initializeApp } from "firebase/app"
 
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth"
+
 import { getFirestore, doc, getDoc, setDoc, getDocs, collection, writeBatch, query } from "firebase/firestore"
 
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
+import { toast } from "sonner"
 
 const firebaseConfig = {
     apiKey: "AIzaSyAMK8fsJ4ogTOZb24WsGFxyDe5F0iP44JE",
@@ -13,9 +15,7 @@ const firebaseConfig = {
     appId: "1:544496296943:web:9922a94a1cca8b60320c1a"
 };
 
-
 const firebaseApp = initializeApp(firebaseConfig);
-
 
 const provider = new GoogleAuthProvider()
 
@@ -64,6 +64,15 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
     return await signInWithEmailAndPassword(auth, email, password);
 };
+
+export const signOutUser = async () => {
+    await signOut(auth)
+    if (signOut) {
+        toast.success("Signed out successfuly.")
+    }
+}
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     const collectionRef = collection(db, collectionKey)

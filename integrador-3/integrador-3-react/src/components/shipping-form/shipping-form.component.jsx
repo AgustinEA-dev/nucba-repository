@@ -19,14 +19,10 @@ const ShippingForm = () => {
     },
 
     validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      console.log({ values });
-      resetForm();
-    },
   });
   return (
     <div className="form-container">
-      <h2 className="shipping-form-h2">PAYMENT</h2>
+      <h2 className="shipping-form-h2">SHIPPING</h2>
       <form className="shipping-form">
         <div className="name-lastName-container">
           <FormInput
@@ -84,9 +80,7 @@ const ShippingForm = () => {
       <h2 className="shipping-company-h2">Select Shipping Company</h2>
       <select name="select" id="select">
         <option value="value1">UPS</option>
-        <option value="value2">
-          Mailchimp
-        </option>
+        <option value="value2">Mailchimp</option>
       </select>
       <Button onSubmit={handleSubmit}>Submit Shipping Information</Button>
     </div>

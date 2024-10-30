@@ -16,20 +16,15 @@ const ContactForm = () => {
       email: "",
       textArea: "",
     },
-
     validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      console.log({ values });
-      resetForm();
-    },
   });
 
   return (
     <>
       <div className="contact-form-container">
         <div className="contact-image-container"></div>
-        <h2 className="form-title">Contact us!</h2>
         <form className="contact-form">
+        <h2 className="form-title">Contact us!</h2>
           <FormInput
             label="Name"
             className="form-input"

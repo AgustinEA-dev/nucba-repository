@@ -1,14 +1,14 @@
-import { Toaster, toast } from "sonner";
-
 import { useState } from "react";
-
-import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
 
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
+
+import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
+
+import { Toaster, toast } from "sonner";
 
 import "./sign-up-form.styles.scss";
 
@@ -30,8 +30,12 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (!displayName && !email && !password && !confirmPassword) {
+      toast.warning("Please complete all fields.");
+    }
+
     if (password !== confirmPassword) {
-      alert("passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
 
@@ -49,8 +53,6 @@ const SignUpForm = () => {
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         toast.error("User or email already in use.");
-      } else {
-        console.log("user creation encountered an error", error);
       }
     }
   };
@@ -70,7 +72,7 @@ const SignUpForm = () => {
         </span>
         <form className="sign-up-form">
           <FormInput
-            label="Display Name"
+            label="Full Name"
             type="text"
             required
             onChange={handleChange}
@@ -105,8 +107,8 @@ const SignUpForm = () => {
             Sign Up
           </Button>
         </form>
+        <Toaster position="bottom-center" />
       </div>
-      <Toaster position="bottom-center" richColors />
     </>
   );
 };

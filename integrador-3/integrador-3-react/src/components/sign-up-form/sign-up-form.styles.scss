@@ -4,10 +4,9 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  border-right: 1px solid black;
 
   form {
-    width: 65%;
+    width: 55%;
   }
 
   h2 {
@@ -22,6 +21,9 @@
     margin: 10px;
   }
 
+  button {
+    margin: 10px;
+  }
 }
 @media (max-width: 530px) {
   .sign-up-container {

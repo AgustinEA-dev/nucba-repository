@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect, useRef } from "react";
 
+import { signOutUser } from "../utils/firebase/firebase.utils";
+
 import { toast } from "sonner";
 
 const addCartItem = (cartItems, productToAdd) => {
@@ -68,28 +70,35 @@ export const CartProvider = ({ children }) => {
     setIsMenuOpen(false);
   };
 
-  const toggleIsMenuOpen = () => {
-    setIsMenuOpen(!isMenuOpen);
-    setIsCartOpen(false);
-  };
-
   const toggleIsCartOpenAndNavigateToCheckout = (func) => {
     setIsCartOpen(!isCartOpen);
     func();
   };
 
+  const toggleIsMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setIsCartOpen(false);
+  };
+
+  const toggleIsMenuOpenAndSignOut = () => {
+    signOutUser();
+    setIsMenuOpen(!isMenuOpen);
+    setIsCartOpen(false);
+  };
+
   let cartRef = useRef();
   let menuRef = useRef();
+  let cartIconRef = useRef();
 
   useEffect(() => {
     let closeOnWindowClick = (e) => {
       if (
         !cartRef.current.contains(e.target) &&
-        !menuRef.current.contains(e.target)
+        !menuRef.current.contains(e.target) &&
+        !cartIconRef.current.contains(e.target)
       ) {
         setIsCartOpen(false);
         setIsMenuOpen(false);
-        console.log(menuRef);
       }
     };
     document.addEventListener("mousedown", closeOnWindowClick);
@@ -129,6 +138,7 @@ export const CartProvider = ({ children }) => {
     toggleIsCartOpen,
     toggleIsMenuOpen,
     toggleIsCartOpenAndNavigateToCheckout,
+    toggleIsMenuOpenAndSignOut,
     addItemToCart,
     removeItemToCart,
     clearItemFromCart,
@@ -139,6 +149,7 @@ export const CartProvider = ({ children }) => {
     setIsMenuOpen,
     cartRef,
     menuRef,
+    cartIconRef,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

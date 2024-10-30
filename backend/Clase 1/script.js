@@ -1,3 +1,5 @@
+// Ejecutamos variables y una función con Node.js 
+                                             
 const numeroEntero = 10
 const numeroDecimal = 3.25
 const cadenaDeTexto = "Bienvenidos a backend"
@@ -20,3 +22,4 @@ console.log("Booleano:", booleano)
 console.log("Array:", array)
 console.log("Objeto:", objeto)
 funcion()
+
